@@ -3,7 +3,6 @@ appnope==0.1.2
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 astor==0.8.1
-astropy @ file:///Users/runner/miniforge3/conda-bld/astropy_1637341053448/work
 asttokens==2.0.5
 attrs==21.4.0
 backcall==0.2.0
