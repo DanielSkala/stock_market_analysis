@@ -10,19 +10,11 @@ base58==2.1.1
 black==21.12b0
 bleach==4.1.0
 blinker==1.4
-Bottleneck @ file:///opt/concourse/worker/volumes/live/ac8c8ef3-2ed0-42e9-6ec0-5bb05ad938f6/volume/bottleneck_1607575111469/work
-brotlipy @ file:///Users/runner/miniforge3/conda-bld/brotlipy_1636012303255/work
-cached-property @ file:///home/conda/feedstock_root/build_artifacts/cached_property_1615209429212/work
 cachetools==5.0.0
 certifi==2021.10.8
-cffi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/croot-2p6q7e2r/cffi_1642701115063/work
-charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1641584610847/work
 click==8.0.3
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
 colorlover==0.3.0
-cryptography @ file:///Users/runner/miniforge3/conda-bld/cryptography_1639699339442/work
 cufflinks==0.17.3
-cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
 debugpy==1.5.1
 decorator==5.1.1
 defusedxml==0.7.1
@@ -33,12 +25,7 @@ flake8==4.0.1
 fonttools==4.25.0
 gitdb==4.0.9
 GitPython==3.1.26
-gwdatafind @ file:///home/conda/feedstock_root/build_artifacts/gwdatafind_1591969261033/work
-gwosc @ file:///home/conda/feedstock_root/build_artifacts/gwosc_1628835986854/work
-gwpy @ file:///home/conda/feedstock_root/build_artifacts/gwpy_1639750513842/work
-h5py @ file:///opt/concourse/worker/volumes/live/6c9dfd5c-4d68-462d-7e1b-a36d4aa040f7/volume/h5py_1637138906246/work
-idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1642433548627/work
-importlib-metadata @ file:///Users/runner/miniforge3/conda-bld/importlib-metadata_1642514159844/work
+gwpy
 ipykernel==6.7.0
 ipython==8.0.1
 ipython-genutils==0.2.0
@@ -50,17 +37,14 @@ jupyter-client==7.1.2
 jupyter-core==4.9.1
 jupyterlab-pygments==0.1.2
 jupyterlab-widgets==1.0.2
-kiwisolver @ file:///opt/concourse/worker/volumes/live/f8867fdb-2fa2-4145-73d9-4d6f6dad5f7c/volume/kiwisolver_1612282424136/work
-ligo-segments @ file:///Users/runner/miniforge3/conda-bld/ligo-segments_1636368282171/work
 ligotimegps==2.0.1
 lxml==4.7.1
 MarkupSafe==2.0.1
-matplotlib @ file:///opt/concourse/worker/volumes/live/4863dc73-443d-42f7-68bf-489aaa0e23a1/volume/matplotlib-suite_1638289695940/work
+matplotlib
 matplotlib-inline==0.1.3
 mccabe==0.6.1
 mistune==0.8.4
 mkl-fft==1.3.1
-mkl-random @ file:///opt/concourse/worker/volumes/live/0cda23d8-7460-44b2-7e5d-3c76a8a0ca7e/volume/mkl_random_1626186083266/work
 mkl-service==2.4.0
 multitasking==0.0.10
 munkres==1.1.4
@@ -70,10 +54,7 @@ nbconvert==6.4.0
 nbformat==5.1.3
 nest-asyncio==1.5.4
 notebook==6.4.8
-numexpr @ file:///opt/concourse/worker/volumes/live/87ac54fe-281a-440d-4d94-26ac99bdabdc/volume/numexpr_1640704258458/work
-numpy @ file:///opt/concourse/worker/volumes/live/21fb9bb9-9731-4901-4403-2bc27cc2cc33/volume/numpy_and_numpy_base_1634106739792/work
-olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
-packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+numpy
 pandas==1.3.5
 pandocfilters==1.5.0
 parso==0.8.3
@@ -82,7 +63,7 @@ pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==8.4.0
 platformdirs==2.4.1
-plotly @ file:///tmp/build/80754af9/plotly_1626182254919/work
+plotly
 prometheus-client==0.13.0
 prompt-toolkit==3.0.24
 protobuf==3.19.3
@@ -90,44 +71,30 @@ ptyprocess==0.7.0
 pure-eval==0.2.2
 pyarrow==6.0.1
 pycodestyle==2.8.0
-pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
 pydeck==0.7.1
-pyerfa @ file:///Users/runner/miniforge3/conda-bld/pyerfa_1636217485805/work
 pyflakes==2.4.0
 Pygments==2.11.2
 Pympler==1.0.1
-pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1633192417276/work
-pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
 pyrsistent==0.18.1
-PySocks @ file:///Users/runner/miniforge3/conda-bld/pysocks_1635862544510/work
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
-PyYAML @ file:///Users/runner/miniforge3/conda-bld/pyyaml_1636139899434/work
 pyzmq==22.3.0
-requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1641580202195/work
-scipy @ file:///opt/concourse/worker/volumes/live/9284487f-601d-4bc3-5556-535c4949d341/volume/scipy_1641557769615/work
+scipy
 Send2Trash==1.8.0
-six @ file:///opt/concourse/worker/volumes/live/34b5b2b5-c9cb-44fb-4b8e-8a9a881bfa35/volume/six_1605205329242/work
 smmap==5.0.0
 stack-data==0.1.4
 streamlit==1.4.0
-tenacity @ file:///opt/concourse/worker/volumes/live/c1132be6-ec8e-40b3-71ba-5221ee5cb84c/volume/tenacity_1626248300498/work
 terminado==0.12.1
 testpath==0.5.0
 toml==0.10.2
 tomli==1.2.3
 toolz==0.11.2
-tornado @ file:///opt/concourse/worker/volumes/live/2c1a63a2-006b-48ee-56b9-0cfe8b4927f9/volume/tornado_1606942321278/work
-tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1632160078689/work
 traitlets==5.1.1
 typing_extensions==4.0.1
 tzdata==2021.5
 tzlocal==4.1
-urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1641584929973/work
 validators==0.18.2
 wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.2
 yfinance==0.1.69
-zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1641731510635/work
