@@ -367,7 +367,7 @@ else:
 
     col1.markdown(f"**Volatility : {round(p_vol[SR_idx], 4)}  \nReturn : "
                   f"{round(p_ret[SR_idx], 4)}**  \n"
-                  f"*by {E_DATE}*")
+                  f"*in 1 year (252 trading days)*")
 
     fig = go.Figure(data=[go.Pie(labels=portfolio_input, values=port_wts)])
     col2.plotly_chart(fig, use_container_width=True)
