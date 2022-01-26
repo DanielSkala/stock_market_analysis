@@ -30,7 +30,8 @@ _lock = RendererAgg.lock
 
 apptitle = 'Stock market data analysis'
 
-# st.set_page_config(page_title=apptitle, page_icon=":eyeglasses:")
+st.set_page_config(page_title=apptitle, page_icon="chart_with_upwards_trend", layout="wide")
+
 
 # -- Default detector list
 detectorlist = ['H1', 'L1', 'V1']
@@ -75,7 +76,7 @@ E_DATE_DT = pd.to_datetime(E_DATE)
 st.sidebar.title("Data from Yahoo Finance")
 with open('sync_dates.txt') as f:
     lines = f.readlines()
-    st.sidebar.markdown("Last sync: " + str(lines[0]))
+    st.sidebar.markdown("Last sync : " + str(lines[0]))
 
 if st.sidebar.button("Get latest data"):
 
@@ -111,9 +112,9 @@ if st.sidebar.button("Get latest data"):
 st.sidebar.markdown("---")
 
 st.sidebar.title("Pick your analysis")
-st.sidebar.markdown('**sectors**: shows stocks by sectors  \n'
-                    '**stock**: shows data about a stock  \n'
-                    '**portfolio**: computes optimal portfolio', )
+st.sidebar.markdown('**sectors** : shows stocks by sectors  \n'
+                    '**stock** : shows data about a stock  \n'
+                    '**portfolio** : computes optimal portfolio', )
 algorithm = st.sidebar.selectbox("Select your analysis",
                                  ["sectors", "stock", "portfolio"])
 
@@ -165,28 +166,28 @@ if algorithm == "sectors":
 
     if graph_type == 'Bollinger Bands':
         test_df = u.get_stock_df_from_csv(sec1_ticker)
-        fig1 = u.plot_with_boll_bands(test_df, f"{sector1}: {sec1_ticker}", 400)
+        fig1 = u.plot_with_boll_bands(test_df, f"{sector1} : {sec1_ticker}", 400)
 
         test_df = u.get_stock_df_from_csv(sec2_ticker)
-        fig2 = u.plot_with_boll_bands(test_df, f"{sector2}: {sec2_ticker}", 400)
+        fig2 = u.plot_with_boll_bands(test_df, f"{sector2} : {sec2_ticker}", 400)
 
         test_df = u.get_stock_df_from_csv(sec3_ticker)
-        fig3 = u.plot_with_boll_bands(test_df, f"{sector3}: {sec3_ticker}", 400)
+        fig3 = u.plot_with_boll_bands(test_df, f"{sector3} : {sec3_ticker}", 400)
 
         test_df = u.get_stock_df_from_csv(sec4_ticker)
-        fig4 = u.plot_with_boll_bands(test_df, f"{sector4}: {sec4_ticker}", 400)
+        fig4 = u.plot_with_boll_bands(test_df, f"{sector4} : {sec4_ticker}", 400)
     else:
         test_df = u.get_stock_df_from_csv(sec1_ticker)
-        fig1 = u.get_Ichimoku(test_df, f"{sector1}: {sec1_ticker}", 400)
+        fig1 = u.get_Ichimoku(test_df, f"{sector1} : {sec1_ticker}", 400)
 
         test_df = u.get_stock_df_from_csv(sec2_ticker)
-        fig2 = u.get_Ichimoku(test_df, f"{sector2}: {sec2_ticker}", 400)
+        fig2 = u.get_Ichimoku(test_df, f"{sector2} : {sec2_ticker}", 400)
 
         test_df = u.get_stock_df_from_csv(sec3_ticker)
-        fig3 = u.get_Ichimoku(test_df, f"{sector3}: {sec3_ticker}", 400)
+        fig3 = u.get_Ichimoku(test_df, f"{sector3} : {sec3_ticker}", 400)
 
         test_df = u.get_stock_df_from_csv(sec4_ticker)
-        fig4 = u.get_Ichimoku(test_df, f"{sector4}: {sec4_ticker}", 400)
+        fig4 = u.get_Ichimoku(test_df, f"{sector4} : {sec4_ticker}", 400)
 
     st.markdown("##### Stocks with highest Cumulative Return for each Sector ")
 
@@ -223,15 +224,15 @@ elif algorithm == "stock":
         col2.markdown(" ")
         col2.markdown(" ")
 
-        col2.markdown(f"Industry: *{msft.info['industry']}*  \n"
-                      f"Employees: *{msft.info['fullTimeEmployees']}*  \n"
-                      f"Gross Profit: *{msft.info['grossProfits']:,}$*  \n"
-                      f"Recommendation: *{msft.info['recommendationKey']}*  \n")
+        col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
+                      f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
+                      f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
+                      f"Recommendation : *{msft.info['recommendationKey']}*  \n")
 
         fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
         st.plotly_chart(fig5, use_container_width=True)
     except KeyError:
-        st.error("ERROR: Ticker not found")
+        st.error("ERROR : Ticker not found")
 else:
     st.header("Markowitz Portfolio Optimization")
     st.markdown("""
@@ -290,7 +291,7 @@ else:
     st.header("Correlation Matrix")
     st.markdown("Correlations above 0.5 are highlighted in red")
     st.table(
-        returns.corr().style.apply(lambda x: ["color: red" if 1.0 > v >= 0.5 else "" for v in x],
+        returns.corr().style.apply(lambda x : ["color : red" if 1.0 > v >= 0.5 else "" for v in x],
                                    axis=1))
 
     num_stocks = len(portfolio_input)
@@ -353,7 +354,7 @@ else:
     i = 0
     while i < num_stocks:
         port_wts.append(p_wt[SR_idx][i] * 100)
-        all_stocks_port += f"**{portfolio_input[i]}** : {p_wt[SR_idx][i] * 100}  \n"
+        all_stocks_port += f"**{portfolio_input[i]}** : {round(p_wt[SR_idx][i] * 100, 4)}%  \n"
         i += 1
 
     col1.header("Optimal Portfolio")
@@ -366,25 +367,25 @@ else:
 
     # port_wts = [7, 8, 15, 14, 3, 3, 17, 6, 11, 14, 1]
 
-    # Get all stock prices on the starting date
-    port_df_start = u.merge_df_by_column_name('Close', '2022-01-07', '2022-01-07',
-                                              *portfolio_input)
-    # Convert from dataframe to Python list
-    port_prices = port_df_start.values.tolist()
-
-    # Trick that converts a list of lists into a single list
-    port_prices = sum(port_prices, [])
-
-    tot_shares, share_cost = u.get_port_shares(105.64, True, port_wts, port_prices)
-    st.markdown(f"Shares : {tot_shares}")
-    st.markdown(f"Share Cost : {share_cost}")
-
-    # Get list of weights for stocks
-    stock_wts = u.get_port_weighting(share_cost)
-    st.markdown(f"Stock Weights : {stock_wts}")
-
-    # Get value at end of year
-    st.markdown(get_port_val_by_date(E_DATE, tot_shares, portfolio_input))
+    # # Get all stock prices on the starting date
+    # port_df_start = u.merge_df_by_column_name('Close', '2022-01-07', '2022-01-07',
+    #                                           *portfolio_input)
+    # # Convert from dataframe to Python list
+    # port_prices = port_df_start.values.tolist()
+    #
+    # # Trick that converts a list of lists into a single list
+    # port_prices = sum(port_prices, [])
+    #
+    # tot_shares, share_cost = u.get_port_shares(105.64, True, port_wts, port_prices)
+    # st.markdown(f"Shares : {tot_shares}")
+    # st.markdown(f"Share Cost : {share_cost}")
+    #
+    # # Get list of weights for stocks
+    # stock_wts = u.get_port_weighting(share_cost)
+    # st.markdown(f"Stock Weights : {stock_wts}")
+    #
+    # # Get value at end of year
+    # st.markdown(get_port_val_by_date(E_DATE, tot_shares, portfolio_input))
 
     # st.markdown("correlation matrix")
     # st.markdown("risk-free rate")
