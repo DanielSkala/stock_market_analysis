@@ -293,7 +293,8 @@ else:
     # st.dataframe(mean_ret)
 
     st.header("Correlation Matrix")
-    st.markdown("Correlations above 0.5 are highlighted in red")
+    st.markdown("As we want to avoid correlated Stocks, correlations above 0.5 are highlighted in "
+                "red.")
     st.table(
         returns.corr().style.apply(lambda x: ["color : red" if 1.0 > v >= 0.5 else "" for v in x],
                                    axis=1))
