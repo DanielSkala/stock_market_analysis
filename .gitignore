@@ -12,6 +12,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+all_stocks/
+
 # C extensions
 *.so
 
@@ -136,7 +138,6 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-all_stocks
 
 # Pyre type checker
 .pyre/
@@ -147,5 +148,6 @@ all_stocks
 # Cython debug symbols
 cython_debug/
 
+!/all_stocks/
 !/all_stocks/
 !/all_stocks/
