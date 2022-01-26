@@ -79,7 +79,7 @@ with open('sync_dates.txt') as f:
     lines = f.readlines()
     st.sidebar.markdown("Last sync : " + str(lines[0]))
 
-st.markdown("*Takes up to a few hours!*")
+st.sidebar.markdown("*Takes up to a few hours!*")
 if st.sidebar.button("Get latest data"):
 
     st.sidebar.markdown("This might take a few hours...")
