@@ -39,7 +39,7 @@ detectorlist = ['H1', 'L1', 'V1']
 st.title('Stock market data analysis')
 st.markdown("""
 This Streamlit app is designed to help you analyse stock market data and create the optimal
-stock_market_analysis for your investment.  \n
+portfolio for your investment.  \n
 All the algorithms come from the repo [Python4Finance](
 https://github.com/derekbanas/Python4Finance) by **Derek Banas**.  \n
 Use the sidebar to select the type of analysis you want to perform.""")
@@ -113,9 +113,9 @@ st.sidebar.markdown("---")
 st.sidebar.title("Pick your analysis")
 st.sidebar.markdown('**sectors**: shows stocks by sectors  \n'
                     '**stock**: shows data about a stock  \n'
-                    '**stock_market_analysis**: computes optimal stock_market_analysis', )
+                    '**portfolio**: computes optimal portfolio', )
 algorithm = st.sidebar.selectbox("Select your analysis",
-                                 ["sectors", "stock", "stock_market_analysis"])
+                                 ["sectors", "stock", "portfolio"])
 
 st.sidebar.markdown("---")
 
@@ -235,10 +235,10 @@ elif algorithm == "stock":
 else:
     st.header("Markowitz Portfolio Optimization")
     st.markdown("""
-    Harry Markowitz proved that you could make what is called an efficient stock_market_analysis.
-    That is a stock_market_analysis that optimizes return while also minimizing risk.
+    Harry Markowitz proved that you could make what is called an efficient portfolio.
+    That is a portfolio that optimizes return while also minimizing risk.
     We don't benefit from analyzing individual securities at the same rate
-    as if we instead considered a stock_market_analysis of stocks.
+    as if we instead considered a portfolio of stocks.
 
     We do this by creating portfolios with stocks that are **not correlated**.
     We want to calculate expected returns by analyzing the returns of each stock multiplied
@@ -246,7 +246,7 @@ else:
 
     $w_1r_1 + w_2r_2 = r_p$
 
-    The standard deviation of the stock_market_analysis is found this way.
+    The standard deviation of the portfolio is found this way.
     Sum multiple calculations starting by finding the product of the first securities weight
     squared times its standard deviation squared.
     The middle is 2 times the correlation coefficient between the stocks.
@@ -323,7 +323,7 @@ else:
         SR_1 = (ret_1 - risk_free_rate) / vol_1
         p_SR.append(SR_1)
 
-        # Store the weights for each stock_market_analysis
+        # Store the weights for each portfolio
         p_wt.append(p_weights)
 
         if x % 100 == 0:
@@ -347,7 +347,7 @@ else:
 
     SR_idx = np.argmax(p_SR)
 
-    # Find the ideal stock_market_analysis weighting at that index
+    # Find the ideal portfolio weighting at that index
     all_stocks_port = ""
     port_wts = []
     i = 0
@@ -391,16 +391,16 @@ else:
     # st.markdown("expected return")
     # st.markdown("expected variance")
     # st.markdown("expected covariance")
-    # st.markdown("expected stock_market_analysis variance")
-    # st.markdown("expected stock_market_analysis covariance")
-    # st.markdown("expected stock_market_analysis return")
-    # st.markdown("expected stock_market_analysis risk")
-    # st.markdown("expected stock_market_analysis sharpe ratio")
-    # st.markdown("expected stock_market_analysis sortino ratio")
-    # st.markdown("expected stock_market_analysis information ratio")
-    # st.markdown("expected stock_market_analysis beta")
-    # st.markdown("expected stock_market_analysis alpha")
-    # st.markdown("expected stock_market_analysis max drawdown")
-    # st.markdown("expected stock_market_analysis max drawdown duration")
-    # st.markdown("expected stock_market_analysis max drawdown start")
-    # st.markdown("expected stock_market_analysis max drawdown end")
+    # st.markdown("expected portfolio variance")
+    # st.markdown("expected portfolio covariance")
+    # st.markdown("expected portfolio return")
+    # st.markdown("expected portfolio risk")
+    # st.markdown("expected portfolio sharpe ratio")
+    # st.markdown("expected portfolio sortino ratio")
+    # st.markdown("expected portfolio information ratio")
+    # st.markdown("expected portfolio beta")
+    # st.markdown("expected portfolio alpha")
+    # st.markdown("expected portfolio max drawdown")
+    # st.markdown("expected portfolio max drawdown duration")
+    # st.markdown("expected portfolio max drawdown start")
+    # st.markdown("expected portfolio max drawdown end")
