@@ -1,6 +1,6 @@
 import time
 
-import cufflinks as cf
+# import cufflinks as cf
 import matplotlib as mpl
 import numpy as np
 import pandas as pd
@@ -22,7 +22,7 @@ import utils as u
 
 # init_notebook_mode(connected=True)
 # Use Plotly locally
-cf.go_offline()
+# cf.go_offline()
 
 mpl.use("agg")
 
