@@ -32,7 +32,6 @@ apptitle = 'Stock market data analysis'
 
 st.set_page_config(page_title=apptitle, page_icon="chart_with_upwards_trend", layout="wide")
 
-
 # -- Default detector list
 detectorlist = ['H1', 'L1', 'V1']
 
@@ -40,8 +39,7 @@ detectorlist = ['H1', 'L1', 'V1']
 st.title('Stock market data analysis')
 st.markdown("""
 This Streamlit app is designed to help you analyse stock market data and create the optimal
-portfolio for your investment.  \n
-All the algorithms come from the repo [Python4Finance](
+portfolio for your investment.  \nAll the algorithms come from the repo [Python4Finance](
 https://github.com/derekbanas/Python4Finance) by **Derek Banas**.  \n
 Use the sidebar to select the type of analysis you want to perform.""")
 
@@ -291,7 +289,7 @@ else:
     st.header("Correlation Matrix")
     st.markdown("Correlations above 0.5 are highlighted in red")
     st.table(
-        returns.corr().style.apply(lambda x : ["color : red" if 1.0 > v >= 0.5 else "" for v in x],
+        returns.corr().style.apply(lambda x: ["color : red" if 1.0 > v >= 0.5 else "" for v in x],
                                    axis=1))
 
     num_stocks = len(portfolio_input)
@@ -360,7 +358,8 @@ else:
     col1.header("Optimal Portfolio")
     col1.markdown(all_stocks_port)
 
-    col1.markdown(f"**Volatility : {p_vol[SR_idx]}  \nReturn : {p_ret[SR_idx]}**")
+    col1.markdown(f"**Volatility : {round(p_vol[SR_idx], 4)}  \nReturn : "
+                  f"{round(p_ret[SR_idx], 4)}**")
 
     fig = go.Figure(data=[go.Pie(labels=portfolio_input, values=port_wts)])
     col2.plotly_chart(fig, use_container_width=True)
