@@ -44,7 +44,7 @@ https://github.com/derekbanas/Python4Finance) by **Derek Banas**.  \n
 This app is comprised of three parts which can be selected in the sidebar:  \n
 - **sectors** : retrieves stocks from selected sectors ordered by their cumulative return
 - **stock** : retrieves information and Ichimoku about a specific Stock
-- **portfolio** : computes optimal portfolio using Markowitz optimisation and Sharpe ratio  \n
+- **portfolio** : computes optimal portfolio using Markowitz optimisation  \n
 
 *This app is also dedicated to Katka Barteková as part of my secret santa gift ;) *""")
 
@@ -366,7 +366,8 @@ else:
     col1.markdown(all_stocks_port)
 
     col1.markdown(f"**Volatility : {round(p_vol[SR_idx], 4)}  \nReturn : "
-                  f"{round(p_ret[SR_idx], 4)}**")
+                  f"{round(p_ret[SR_idx], 4)}**  \n"
+                  f"*by {S_DATE_DT}*")
 
     fig = go.Figure(data=[go.Pie(labels=portfolio_input, values=port_wts)])
     col2.plotly_chart(fig, use_container_width=True)
