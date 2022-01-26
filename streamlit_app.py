@@ -41,7 +41,10 @@ st.markdown("""
 This Streamlit app is designed to help you analyse stock market data and create the optimal
 portfolio for your investment.  \nAll the algorithms come from the repo [Python4Finance](
 https://github.com/derekbanas/Python4Finance) by **Derek Banas**.  \n
-Use the sidebar to select the type of analysis you want to perform.""")
+This app is comprised of three parts which can be selected in the sidebar:  \n
+- **sectors** : retrieves stocks from selected sectors ordered by their cumulative return
+- **stock** : retrieves information and Ichimoku about a specific Stock
+- **portfolio** : computes optimal portfolio using Markowitz optimisation and Sharpe ratio""")
 
 st.markdown("---")
 
