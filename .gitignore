@@ -136,6 +136,7 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+all_stocks
 
 # Pyre type checker
 .pyre/
@@ -146,3 +147,5 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+!/all_stocks/
+!/all_stocks/
