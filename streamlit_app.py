@@ -233,7 +233,7 @@ elif algorithm == "stock":
                       f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
                       f"Recommendation : *{msft.info['recommendationKey']}*  \n")
 
-        col3.dataframe(msft.info)
+        col3.write(msft.info)
 
         fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
         st.plotly_chart(fig5, use_container_width=True)
