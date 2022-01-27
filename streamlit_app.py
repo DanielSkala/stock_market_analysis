@@ -209,7 +209,7 @@ if algorithm == "sectors":
     col3.plotly_chart(fig3, use_container_width=True)
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
-    input_ticker = st.sidebar.multiselect("Ticker to analyse", tickers)
+    input_ticker = st.sidebar.multiselect("Tickers to analyse", tickers, default=['TSLA'])
     stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
                                                                                      'Bands'))
 
@@ -223,7 +223,6 @@ elif algorithm == "stock":
 
         try:
             st.header(f"[{msft.info['longName']}]({msft.info['website']})")
-            # st.image(msft.info["logo_url"], width=40)
             c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
             c1.markdown(f"{msft.info['country']}, {msft.info['state']}  \n"
                         f"{msft.info['city']}, {msft.info['zip']}  \n")
@@ -231,8 +230,6 @@ elif algorithm == "stock":
 
             col1, col2, col3 = st.columns(3)
             col1.text_area("Long Business Summary", msft.info['longBusinessSummary'], height=100)
-            # with col1.expander("Long Business Summary", expanded=True):
-            #     st.text_area("Long Business Summar", msft.info['longBusinessSummary'], height=200)
 
             col2.markdown(" ")
             col2.markdown(" ")
@@ -249,7 +246,7 @@ elif algorithm == "stock":
                 fig5 = u.plot_with_boll_bands(test_df, f"{input}", 700)
                 st.plotly_chart(fig5, use_container_width=True)
 
-            with st.expander(f"#### All retrieved information about {msft.info['longName']}",
+            with st.expander(f"More information about {msft.info['longName']}",
                              expanded=False):
                 st.write(msft.info)
 
