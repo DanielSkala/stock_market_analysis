@@ -210,8 +210,8 @@ if algorithm == "sectors":
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
     input_ticker = st.sidebar.multiselect("Tickers to analyse", tickers, default=['TSLA'])
-    stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
-                                                                                     'Bands'))
+    stock_graph_type = st.sidebar.radio("Which type of graphs to show?", ('Ichimoku', 'Bollinger '
+                                                                                      'Bands'))
 
     for input in input_ticker:
 
@@ -278,7 +278,7 @@ else:
     $(w_1\sigma_1 + w_2\sigma_2)^2 = w_1^2\sigma_1^2 + 2w_1\sigma_1w_2\sigma_2\\rho_1 +
     w_2^2\sigma_2^2$""")
 
-    portfolio_input = st.text_input("Input comma separated tickers",
+    portfolio_input = st.text_input("Input your portfolio as comma separated tickers",
                                     "CALX, NOVT, RGEN, LLY, AMD, NFLX, COST, BJ, WING, MSCI, CBRE")
     portfolio_input = portfolio_input.replace(" ", "")
     portfolio_input = portfolio_input.split(",")
