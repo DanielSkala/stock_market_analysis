@@ -211,7 +211,7 @@ if algorithm == "sectors":
 elif algorithm == "stock":
     input_ticker = st.sidebar.multiselect("Ticker to analyse", tickers)
     stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
-                                                                                 'Bands'))
+                                                                                     'Bands'))
 
     for input in input_ticker:
 
@@ -249,8 +249,11 @@ elif algorithm == "stock":
                 fig5 = u.plot_with_boll_bands(test_df, f"{input}", 700)
                 st.plotly_chart(fig5, use_container_width=True)
 
-            st.markdown(f"#### All retrieved information about {msft.info['longName']}")
-            st.write(msft.info)
+            with st.expander(f"#### All retrieved information about {msft.info['longName']}",
+                             expanded=False):
+                st.write(msft.info)
+
+            st.markdown("---")
 
         except KeyError:
             st.error("ERROR : Ticker not found")
