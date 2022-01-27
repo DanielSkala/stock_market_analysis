@@ -209,52 +209,51 @@ if algorithm == "sectors":
     col3.plotly_chart(fig3, use_container_width=True)
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
-    st.write(tickers)
     input_ticker = st.sidebar.multiselect("Ticker to analyse", tickers)
     stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
                                                                                  'Bands'))
 
-    input_ticker = input_ticker[0]
+    for input in input_ticker:
 
-    test_df = u.get_stock_df_from_csv(input_ticker)
-    # st.markdown(f"### Ichimoku Chart for the {input_ticker} Stock")
+        test_df = u.get_stock_df_from_csv(input)
+        # st.markdown(f"### Ichimoku Chart for the {input_ticker} Stock")
 
-    msft = yf.Ticker(input_ticker)
-    # st.header(msft.info['longName'])
+        msft = yf.Ticker(input)
+        # st.header(msft.info['longName'])
 
-    try:
-        st.header(f"[{msft.info['longName']}]({msft.info['website']})")
-        # st.image(msft.info["logo_url"], width=40)
-        c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
-        c1.markdown(f"{msft.info['country']}, {msft.info['state']}  \n"
-                    f"{msft.info['city']}, {msft.info['zip']}  \n")
-        c2.image(msft.info["logo_url"], width=40)
+        try:
+            st.header(f"[{msft.info['longName']}]({msft.info['website']})")
+            # st.image(msft.info["logo_url"], width=40)
+            c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
+            c1.markdown(f"{msft.info['country']}, {msft.info['state']}  \n"
+                        f"{msft.info['city']}, {msft.info['zip']}  \n")
+            c2.image(msft.info["logo_url"], width=40)
 
-        col1, col2, col3 = st.columns(3)
-        col1.text_area("Long Business Summary", msft.info['longBusinessSummary'], height=100)
-        # with col1.expander("Long Business Summary", expanded=True):
-        #     st.text_area("Long Business Summar", msft.info['longBusinessSummary'], height=200)
+            col1, col2, col3 = st.columns(3)
+            col1.text_area("Long Business Summary", msft.info['longBusinessSummary'], height=100)
+            # with col1.expander("Long Business Summary", expanded=True):
+            #     st.text_area("Long Business Summar", msft.info['longBusinessSummary'], height=200)
 
-        col2.markdown(" ")
-        col2.markdown(" ")
+            col2.markdown(" ")
+            col2.markdown(" ")
 
-        col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
-                      f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
-                      f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
-                      f"Recommendation : *{msft.info['recommendationKey']}*  \n")
+            col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
+                          f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
+                          f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
+                          f"Recommendation : *{msft.info['recommendationKey']}*  \n")
 
-        if stock_graph_type == "Ichimoku":
-            fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
-            st.plotly_chart(fig5, use_container_width=True)
-        else:
-            fig5 = u.plot_with_boll_bands(test_df, f"{input_ticker}", 700)
-            st.plotly_chart(fig5, use_container_width=True)
+            if stock_graph_type == "Ichimoku":
+                fig5 = u.get_Ichimoku(test_df, f"{input}", 700)
+                st.plotly_chart(fig5, use_container_width=True)
+            else:
+                fig5 = u.plot_with_boll_bands(test_df, f"{input}", 700)
+                st.plotly_chart(fig5, use_container_width=True)
 
-        st.markdown(f"#### All retrieved information about {msft.info['longName']}")
-        st.write(msft.info)
+            st.markdown(f"#### All retrieved information about {msft.info['longName']}")
+            st.write(msft.info)
 
-    except KeyError:
-        st.error("ERROR : Ticker not found")
+        except KeyError:
+            st.error("ERROR : Ticker not found")
 else:
     st.header("Markowitz Portfolio Optimization")
     st.markdown("""
