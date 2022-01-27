@@ -154,23 +154,28 @@ if algorithm == "sectors":
 
     col1, col2, col3, col4 = st.columns(4)
 
+    sec1 = sec1.sort_values(by=['CUM_RET'], ascending=False).head(10)
+    sec2 = sec2.sort_values(by=['CUM_RET'], ascending=False).head(10)
+    sec3 = sec3.sort_values(by=['CUM_RET'], ascending=False).head(10)
+    sec4 = sec4.sort_values(by=['CUM_RET'], ascending=False).head(10)
+
     col1.subheader(sector1)
-    col1.dataframe(sec1.sort_values(by=['CUM_RET'], ascending=False).head(10))
+    col1.dataframe(sec1)
     col2.subheader(sector2)
-    col2.dataframe(sec2.sort_values(by=['CUM_RET'], ascending=False).head(10))
+    col2.dataframe(sec2)
     col3.subheader(sector3)
-    col3.dataframe(sec3.sort_values(by=['CUM_RET'], ascending=False).head(10))
+    col3.dataframe(sec3)
     col4.subheader(sector4)
-    col4.dataframe(sec4.sort_values(by=['CUM_RET'], ascending=False).head(10))
+    col4.dataframe(sec4)
 
     sec1_ticker = sec1['Ticker'].iloc[0]
     sec2_ticker = sec2['Ticker'].iloc[0]
     sec3_ticker = sec3['Ticker'].iloc[0]
     sec4_ticker = sec4['Ticker'].iloc[0]
 
-    st.write(sec4.sort_values(by=['CUM_RET'], ascending=False)['Ticker'])
-    st.write(sec4['Ticker'].iloc[0])
-    st.write(sec4['Ticker'].iloc(0))
+    # st.write(sec4.sort_values(by=['CUM_RET'], ascending=False)['Ticker'])
+    # st.write(sec4['Ticker'].iloc[0])
+    # st.write(sec4['Ticker'].iloc(0))
 
     if graph_type == 'Bollinger Bands':
         test_df = u.get_stock_df_from_csv(sec1_ticker)
