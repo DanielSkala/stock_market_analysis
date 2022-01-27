@@ -173,10 +173,6 @@ if algorithm == "sectors":
     sec3_ticker = sec3['Ticker'].iloc[0]
     sec4_ticker = sec4['Ticker'].iloc[0]
 
-    # st.write(sec4.sort_values(by=['CUM_RET'], ascending=False)['Ticker'])
-    # st.write(sec4['Ticker'].iloc[0])
-    # st.write(sec4['Ticker'].iloc(0))
-
     if graph_type == 'Bollinger Bands':
         test_df = u.get_stock_df_from_csv(sec1_ticker)
         fig1 = u.plot_with_boll_bands(test_df, f"{sector1} : {sec1_ticker}", 400)
@@ -213,7 +209,7 @@ if algorithm == "sectors":
     col3.plotly_chart(fig3, use_container_width=True)
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
-    input_ticker = st.sidebar.text_input("Ticker to analyse", "TSLA")
+    input_ticker = st.sidebar.multiselect("Ticker to analyse", tickers)
     stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
                                                                                  'Bands'))
 
