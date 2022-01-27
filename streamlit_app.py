@@ -209,10 +209,12 @@ if algorithm == "sectors":
     col3.plotly_chart(fig3, use_container_width=True)
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
+    st.write(tickers)
     input_ticker = st.sidebar.multiselect("Ticker to analyse", tickers)
     stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
                                                                                  'Bands'))
 
+    input_ticker = input_ticker[0]
 
     test_df = u.get_stock_df_from_csv(input_ticker)
     # st.markdown(f"### Ichimoku Chart for the {input_ticker} Stock")
