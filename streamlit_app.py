@@ -226,7 +226,7 @@ elif algorithm == "stock":
         #     st.text_area("Long Business Summar", msft.info['longBusinessSummary'], height=200)
 
         col2.markdown(" ")
-        col2.markdown(" ")
+        col2.markdown("**Basic summary**")
 
         col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
                       f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
@@ -236,7 +236,7 @@ elif algorithm == "stock":
         fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
         st.plotly_chart(fig5, use_container_width=True)
 
-        st.markdown("#### All retrieved information")
+        st.markdown(f"#### All retrieved information about {msft.info['longName']}")
         st.write(msft.info)
 
     except KeyError:
