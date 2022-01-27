@@ -168,7 +168,7 @@ if algorithm == "sectors":
     sec3_ticker = sec3['Ticker'].iloc[0]
     sec4_ticker = sec4['Ticker'].iloc[0]
 
-    st.write(sec4['Ticker'])
+    st.write(sec4.sort_values(by=['CUM_RET'], ascending=False)['Ticker'])
     st.write(sec4['Ticker'].iloc[0])
     st.write(sec4['Ticker'].iloc(0))
 
