@@ -205,6 +205,9 @@ if algorithm == "sectors":
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
     input_ticker = st.sidebar.text_input("Ticker to analyse", "TSLA")
+    stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
+                                                                                 'Bands'))
+
 
     test_df = u.get_stock_df_from_csv(input_ticker)
     # st.markdown(f"### Ichimoku Chart for the {input_ticker} Stock")
@@ -226,15 +229,19 @@ elif algorithm == "stock":
         #     st.text_area("Long Business Summar", msft.info['longBusinessSummary'], height=200)
 
         col2.markdown(" ")
-        col2.markdown("**Basic summary**")
+        col2.markdown(" ")
 
         col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
                       f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
                       f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
                       f"Recommendation : *{msft.info['recommendationKey']}*  \n")
 
-        fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
-        st.plotly_chart(fig5, use_container_width=True)
+        if stock_graph_type == "Ichimoku":
+            fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
+            st.plotly_chart(fig5, use_container_width=True)
+        else:
+            fig5 = u.plot_with_boll_bands(test_df, f"{input_ticker}", 700)
+            st.plotly_chart(fig5, use_container_width=True)
 
         st.markdown(f"#### All retrieved information about {msft.info['longName']}")
         st.write(msft.info)
