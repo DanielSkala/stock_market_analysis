@@ -116,9 +116,6 @@ if st.sidebar.button("Get latest data"):
 st.sidebar.markdown("---")
 
 st.sidebar.title("Pick your analysis")
-st.sidebar.markdown('**sectors** : shows stocks by sectors  \n'
-                    '**stock** : shows data about a stock  \n'
-                    '**portfolio** : computes optimal portfolio', )
 algorithm = st.sidebar.selectbox("Select your analysis",
                                  ["sectors", "stock", "portfolio"])
 
