@@ -167,7 +167,9 @@ if algorithm == "sectors":
     sec2_ticker = sec2['Ticker'].iloc[0]
     sec3_ticker = sec3['Ticker'].iloc[0]
     sec4_ticker = sec4['Ticker'].iloc[0]
-    st.header(f"{sec4['Ticker']} {sec4['Ticker'].iloc[0]}")
+    st.header(sec4['Ticker'])
+    st.header(sec4['Ticker'].iloc[0])
+    st.header(sec4['Ticker'].iloc(0))
 
     if graph_type == 'Bollinger Bands':
         test_df = u.get_stock_df_from_csv(sec1_ticker)
