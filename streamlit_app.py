@@ -209,7 +209,7 @@ if algorithm == "sectors":
     col3.plotly_chart(fig3, use_container_width=True)
     col4.plotly_chart(fig4, use_container_width=True)
 elif algorithm == "stock":
-    input_ticker = st.sidebar.multiselect("Ticker to analyse", tickers)
+    input_ticker = st.sidebar.multiselect("Ticker to analyse", ['TSLA'])
     stock_graph_type = st.sidebar.radio("Which type of graph to show?", ('Ichimoku', 'Bollinger '
                                                                                  'Bands'))
 
