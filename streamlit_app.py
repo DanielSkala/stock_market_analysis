@@ -233,6 +233,7 @@ elif algorithm == "stock":
                       f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
                       f"Recommendation : *{msft.info['recommendationKey']}*  \n")
 
+        col3.text_area("All retrieved information", msft.info, height=100)
         col3.write(msft.info)
 
         fig5 = u.get_Ichimoku(test_df, f"{input_ticker}", 700)
