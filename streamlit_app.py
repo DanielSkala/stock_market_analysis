@@ -278,9 +278,9 @@ else:
     # portfolio_input = st.text_input("Input your portfolio as comma separated tickers",
     #                                 "CALX, NOVT, RGEN, LLY, AMD, NFLX, COST, BJ, WING, MSCI, CBRE")
     portfolio_input = st.multiselect("Input your portfolio as comma separated tickers", tickers,
-                                     default=['TSLA'])
-    # 'CALX', 'NOVT', 'RGEN', 'LLY', 'AMD', 'NFLX', 'COST',
-    # 'BJ', 'WING', 'MSCI', 'CBRE'
+                                     default=['CALX', 'NOVT', 'RGEN', 'LLY', 'AMD', 'NFLX',
+                                              'COST', 'BJ', 'WING', 'MSCI', 'CBRE'])
+
     # portfolio_input = portfolio_input.replace(" ", "")
     # portfolio_input = portfolio_input.split(",")
 
