@@ -275,10 +275,13 @@ else:
     $(w_1\sigma_1 + w_2\sigma_2)^2 = w_1^2\sigma_1^2 + 2w_1\sigma_1w_2\sigma_2\\rho_1 +
     w_2^2\sigma_2^2$""")
 
-    portfolio_input = st.text_input("Input your portfolio as comma separated tickers",
-                                    "CALX, NOVT, RGEN, LLY, AMD, NFLX, COST, BJ, WING, MSCI, CBRE")
-    portfolio_input = portfolio_input.replace(" ", "")
-    portfolio_input = portfolio_input.split(",")
+    # portfolio_input = st.text_input("Input your portfolio as comma separated tickers",
+    #                                 "CALX, NOVT, RGEN, LLY, AMD, NFLX, COST, BJ, WING, MSCI, CBRE")
+    portfolio_input = st.multiselect("Input your portfolio as comma separated tickers",
+                                     default=['CALX', 'NOVT', 'RGEN', 'LLY', 'AMD', 'NFLX', 'COST',
+                                              'BJ', 'WING', 'MSCI', 'CBRE'])
+    # portfolio_input = portfolio_input.replace(" ", "")
+    # portfolio_input = portfolio_input.split(",")
 
     col1, col2 = st.columns(2)
     mult_df = u.merge_df_by_column_name('Close', S_DATE, E_DATE, *portfolio_input)
