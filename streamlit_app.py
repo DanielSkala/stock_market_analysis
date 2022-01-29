@@ -313,7 +313,7 @@ else:
                                    axis=1))
 
     num_stocks = len(portfolio_input)
-    risk_free_rate = 0.0125
+    risk_free_rate = 0.1
 
     p_ret = []  # Returns list
     p_vol = []  # Volatility list
