@@ -218,24 +218,23 @@ elif algorithm == "stock":
         msft = yf.Ticker(input)
         # st.header(msft.info['longName'])
 
+        st.header(f"[{msft.info['longName']}]({msft.info['website']})")
+        c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
+        c1.markdown(f"{msft.info['country']}, {msft.info['state']}  \n"
+                    f"{msft.info['city']}, {msft.info['zip']}  \n")
+        c2.image(msft.info["logo_url"], width=40)
+
+        col1, col2, col3 = st.columns(3)
+        col1.text_area("Long Business Summary", msft.info['longBusinessSummary'], height=100)
+
+        col2.markdown(" ")
+        col2.markdown(" ")
+
+        col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
+                      f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
+                      f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
+                      f"Recommendation : *{msft.info['recommendationKey']}*  \n")
         try:
-            st.header(f"[{msft.info['longName']}]({msft.info['website']})")
-            c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
-            c1.markdown(f"{msft.info['country']}, {msft.info['state']}  \n"
-                        f"{msft.info['city']}, {msft.info['zip']}  \n")
-            c2.image(msft.info["logo_url"], width=40)
-
-            col1, col2, col3 = st.columns(3)
-            col1.text_area("Long Business Summary", msft.info['longBusinessSummary'], height=100)
-
-            col2.markdown(" ")
-            col2.markdown(" ")
-
-            col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
-                          f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
-                          f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
-                          f"Recommendation : *{msft.info['recommendationKey']}*  \n")
-
             if stock_graph_type == "Ichimoku":
                 fig5 = u.get_Ichimoku(test_df, f"{input}", 700)
                 st.plotly_chart(fig5, use_container_width=True)
