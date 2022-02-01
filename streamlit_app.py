@@ -230,6 +230,7 @@ elif algorithm == "stock":
         col2.markdown(" ")
         col2.markdown(" ")
 
+        st.markdown(msft.info)
         st.markdown(msft.info['industry'])
         # st.markdown(msft.info['fullTimeEmployees'])
         st.markdown(msft.info['grossProfits'])
