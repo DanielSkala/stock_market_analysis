@@ -231,6 +231,9 @@ elif algorithm == "stock":
         col2.markdown(" ")
 
         st.markdown(msft.info['industry'])
+        st.markdown(msft.info['fullTimeEmployees'])
+        st.markdown(msft.info['grossProfits'])
+        st.markdown(msft.info['recommendationKey'])
         st.header("IT IS HERE")
 
         col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
