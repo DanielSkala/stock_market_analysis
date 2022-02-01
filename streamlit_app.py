@@ -230,7 +230,9 @@ elif algorithm == "stock":
         col2.markdown(" ")
         col2.markdown(" ")
 
+        st.markdown(msft.info)
         st.header("IT IS HERE")
+
         col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
                       f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
                       f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
