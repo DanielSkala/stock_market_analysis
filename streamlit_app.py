@@ -230,18 +230,12 @@ elif algorithm == "stock":
         col2.markdown(" ")
         col2.markdown(" ")
 
-        st.markdown(msft.info)
-        st.markdown(msft.info['industry'])
-        # st.markdown(msft.info['fullTimeEmployees'])
-        st.markdown(msft.info['grossProfits'])
-        st.markdown(msft.info['recommendationKey'])
-        st.header("IT IS HERE")
-
-        col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
-                      f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
-                      f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
-                      f"Recommendation : *{msft.info['recommendationKey']}*  \n")
         try:
+            col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
+                          f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
+                          f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
+                          f"Recommendation : *{msft.info['recommendationKey']}*  \n")
+
             if stock_graph_type == "Ichimoku":
                 fig5 = u.get_Ichimoku(test_df, f"{input}", 700)
                 st.plotly_chart(fig5, use_container_width=True)
@@ -256,7 +250,7 @@ elif algorithm == "stock":
             st.markdown("---")
 
         except KeyError:
-            st.error("ERROR : Ticker not found")
+            st.error("ERROR retrieving data from Yahoo Finance")
 else:
     st.header("Markowitz Portfolio Optimization")
     st.markdown("""
