@@ -232,25 +232,26 @@ elif algorithm == "stock":
 
         try:
             col2.markdown(f"Industry : *{msft.info['industry']}*  \n"
-                          f"Employees : *{msft.info['fullTimeEmployees']}*  \n"
+                          f"Dividends : *{msft.info['dividendRate']}*  \n"
                           f"Gross Profit : *{msft.info['grossProfits']:,}$*  \n"
                           f"Recommendation : *{msft.info['recommendationKey']}*  \n")
-
-            if stock_graph_type == "Ichimoku":
-                fig5 = u.get_Ichimoku(test_df, f"{input}", 700)
-                st.plotly_chart(fig5, use_container_width=True)
-            else:
-                fig5 = u.plot_with_boll_bands(test_df, f"{input}", 700)
-                st.plotly_chart(fig5, use_container_width=True)
-
-            with st.expander(f"More information about {msft.info['longName']}",
-                             expanded=False):
-                st.write(msft.info)
-
-            st.markdown("---")
-
         except KeyError:
             st.error("ERROR retrieving data from Yahoo Finance")
+
+        if stock_graph_type == "Ichimoku":
+            fig5 = u.get_Ichimoku(test_df, f"{input}", 700)
+            st.plotly_chart(fig5, use_container_width=True)
+        else:
+            fig5 = u.plot_with_boll_bands(test_df, f"{input}", 700)
+            st.plotly_chart(fig5, use_container_width=True)
+
+        with st.expander(f"More information about {msft.info['longName']}",
+                         expanded=False):
+            st.write(msft.info)
+
+        st.markdown("---")
+
+
 else:
     st.header("Markowitz Portfolio Optimization")
     st.markdown("""
@@ -275,10 +276,13 @@ else:
     $(w_1\sigma_1 + w_2\sigma_2)^2 = w_1^2\sigma_1^2 + 2w_1\sigma_1w_2\sigma_2\\rho_1 +
     w_2^2\sigma_2^2$""")
 
-    portfolio_input = st.multiselect("Input your portfolio as comma separated tickers", tickers,
-                                     default=['CALX', 'NOVT', 'RGEN', 'LLY', 'AMD', 'NFLX',
-                                              'COST', 'BJ', 'WING', 'MSCI', 'CBRE'])
-
+    # portfolio_input = st.multiselect("Input your portfolio as comma separated tickers", tickers,
+    #                                  default=['CALX', 'NOVT', 'RGEN', 'LLY', 'AMD', 'NFLX',
+    #                                           'COST', 'BJ', 'WING', 'MSCI', 'CBRE'])
+    portfolio_input = st.multiselect("Input your portfolio", tickers,
+                                     default=['ABBV', 'LYB', 'NFLX', 'NVDA', 'AMD',
+                                              'AMZN', 'AAPL', 'GOOGL', 'MSFT', 'KO', 'MCD',
+                                              'PEP', 'WMT', 'NKE', 'CSCO'])
     col1, col2 = st.columns(2)
     mult_df = u.merge_df_by_column_name('Close', S_DATE, E_DATE, *portfolio_input)
 
